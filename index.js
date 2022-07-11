@@ -9,28 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderData (data) {
     console.log(data)
     data.forEach((element, index, array) => {
-        const entryContainer = document.createElement("div")
-        entryContainer.style.display = "flex"
-        entryContainer.style.flexDirection = "column"
-        entryContainer.style.width = "300px"
-        contentContainer.append(entryContainer)
 
-        const title = document.createElement("h3")
-        title.textContent = array[index].name
-        title.style.margin = "auto"
-        entryContainer.append(title)
+        const imgContainer = document.createElement("div")
+        imgContainer.className = "entry"
+        contentContainer.append(imgContainer)
 
         const image = document.createElement("img")
+        image.className = "image"
         image.src = array[index].image_url
-        image.style.width = "100px"
-        image.style.margin = "auto"
-        entryContainer.append(image)
-
-        const description = document.createElement("p")
-        description.textContent = array[index].description
-        description.style.width = "260px"
-        description.style.margin = "auto"
-        entryContainer.append(description)
+        imgContainer.append(image)
     })
 }
-
