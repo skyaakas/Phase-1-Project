@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("abc.com")
+    fetch("https://api.punkapi.com/v2/beers")
     .then(resp => resp.json())
-    .then(data => document.body.append(data))
+    .then(data => console.log(data))
 })
