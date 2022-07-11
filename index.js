@@ -21,6 +21,7 @@ function renderData (data) {
         imgContainer.append(image)
 
         const title = document.createElement("h2")
+        title.className = "title"
         title.textContent = array[index].name
         imgContainer.append(title)
     })
