@@ -1,4 +1,5 @@
 const contentContainer = document.getElementById("contentContainer")
+const popUpMenu = document.createElement("div")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://api.punkapi.com/v2/beers")
@@ -20,3 +21,9 @@ function renderData (data) {
         imgContainer.append(image)
     })
 }
+
+document.body.addEventListener("click", event => {
+    if (event.target.className === "entry" || event.target.className === "image") {
+        console.log("iht")
+    }
+})
