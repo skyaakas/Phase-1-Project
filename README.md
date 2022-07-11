@@ -17,6 +17,7 @@
 <!-- API Key -->
 
 API Link : https://api.punkapi.com/v2/beers
+API Key : AIzaSyAtilBAj3F7R7l7SSJsxK4BZHHtPC5KuAA
 
 <!-- Rocket Pitch -->
 
