@@ -1,0 +1,27 @@
+#contentContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 600px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    margin-bottom: 2%;
+}
+
+.image {
+    max-width: 82%;
+    max-height: 82%;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+}
