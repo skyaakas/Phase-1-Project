@@ -19,11 +19,16 @@ function renderData (data) {
         image.className = "image"
         image.src = array[index].image_url
         imgContainer.append(image)
+
+        const title = document.createElement("h2")
+        title.textContent = array[index].name
+        imgContainer.append(title)
     })
 }
 
 document.body.addEventListener("click", event => {
     if (event.target.className === "entry" || event.target.className === "image") {
         console.log("iht")
+
     }
 })
