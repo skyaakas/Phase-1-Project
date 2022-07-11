@@ -11,5 +11,4 @@ User Deliverables
     - Add user-created recipes to the collection
     - Contact form, links to social media
 
-    API
-    -bubble.com
+API Link : https://api.punkapi.com/v2/beers
