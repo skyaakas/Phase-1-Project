@@ -9,6 +9,6 @@ User Deliverables
     - Click on entry and access more information (dropdown menu?)
     - Mouseover images and show extra content
     - Add user-created recipes to the collection
-    - Contact form, links to social medi
+    - Contact form, links to social media
 
 API Link : https://api.punkapi.com/v2/beers
