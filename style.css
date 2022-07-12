@@ -66,13 +66,13 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    
+    border-radius: 10px;
 }
 
 .modal-close{
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: relative;
+    top: -97px;
+    right: 30px;
     font-weight: bold;
     cursor: pointer;
     color: black;
@@ -89,11 +89,8 @@
     animation: alternate;
     animation-duration: 3s;
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> michael
 .subtitle{
     text-align: center;
 } */
