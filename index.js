@@ -33,3 +33,11 @@ document.body.addEventListener("click", event => {
 
     }
 })
+
+const button = document.querySelector(".modal-btn")
+const newsletter = document.querySelector(".modal-bg")
+
+button.addEventListener("click", function() {
+    newsletter.classList.add("bg-active")
+})
+
