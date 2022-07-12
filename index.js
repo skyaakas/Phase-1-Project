@@ -36,13 +36,12 @@ document.body.addEventListener("click", event => {
 
 const button = document.querySelector(".modal-btn")
 const newsletter = document.querySelector(".modal-bg")
+const modalClose = document.querySelector(".modal-close")
 
 button.addEventListener("click", function() {
     newsletter.classList.add("bg-active")
 })
 
-const closeButton = document.querySelector(".close-button")
-button.addEventListener("click", function() {
+modalClose.addEventListener("click", function() {  
     newsletter.classList.remove("bg-active")
 })
-
