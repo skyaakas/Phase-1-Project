@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='index.js' defer></script>
+    <script src="form.js" defer></script>
     <!-- <h1 class="title">The Brewer's Website</h1>
     <h3 class="subtitle"> All brewers are welcome</h3> -->
     <button class="modal-btn">Subscribe to our NewsLetter</button>
@@ -18,16 +19,16 @@
         </div>
         <div class="subtitle">All brewers are welcome</div>
       </div>
-    <div class = "modal-bg">
-        <form class = "modal">
+    <div class="modal-bg">
+        <form id="subscribe-form" class = "modal">
             <h2> Subscribe</h2> 
             <label for="name" name="name">Name:</label>
-            <input type="text">
+            <input id="nameinput" type="text">
             <label for="email" name="email"> Email:</label>
-            <input type="text">
-            <button>Subscribe</button>
-            <button class= "modal-close">X</button>
+            <input id="emailinput" type="text">
+            <input type="submit" value="Subscribe">
         </form>
+        <button class= "modal-close">X</button>
     </div>
     <div id="contentContainer"></div>
     <form id="searchform" action="#" method="POST">
@@ -36,20 +37,3 @@
     </form> 
 </body>
 </html>
-
-
-<!-- <div class = "beer">
-    <div class = "beer-information">
-        <h2> Subscribe</h2> 
-        <label for="name" name="name">Name:</label>
-        <input type="text">
-        <label for="email" name="email"> Email:</label>
-        <input type="text">
-        <button>Subscribe</button> -->
-
-
-        <!-- <form id="create-task-form" action="#" method="POST">
-            <label for="new-task-description">Task description:</label>
-            <input type="text" id="new-task-description" name="new-task-description" placeholder="description">
-            <input type="submit" value="Create New Task">
-          </form> -->
