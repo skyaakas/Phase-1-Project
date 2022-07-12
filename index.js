@@ -1,5 +1,7 @@
 const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
+const searchForm = document.getElementById("searchform")
+const searchInput = document.getElementById("searchinput")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://api.punkapi.com/v2/beers")
@@ -27,12 +29,12 @@ function renderData (data) {
     })
 }
 
-document.body.addEventListener("click", event => {
-    if (event.target.className === "entry" || event.target.className === "image") {
-        console.log("iht")
+// document.body.addEventListener("click", event => {
+//     if (event.target.className === "entry" || event.target.className === "image") {
+//         console.log("iht")
 
-    }
-})
+//     }
+// })
 
 const button = document.querySelector(".modal-btn")
 const newsletter = document.querySelector(".modal-bg")
@@ -56,3 +58,9 @@ function doStuff() {
 window.onload = function() {
     doStuff();
 };
+
+searchForm.addEventListener("submit", event => {
+    event.preventDefault()
+    alert(searchInput.value)
+    searchForm.reset()
+})
