@@ -1,1 +1,218 @@
-abcdefg
+#contentContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 600px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    margin-bottom: 2%;
+    /* overflow: hidden;  */
+}
+
+* {
+    font-family: 'montserrat', sans-serif;
+}
+
+.image {
+    max-width: 82%;
+    max-height: 82%;
+    margin: auto;
+    /* transition: transform .5s ease; */
+    
+}
+
+/* .image :hover {
+    transform: scale(1.05);
+} */
+
+.title {
+    text-align: center;
+}
+
+.modal-bg{
+    position : fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.bg-active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal{
+    position: relative;
+    background-color: white;
+    width: 30%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+.modal-btn{
+    position :absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* .title{
+    text-align: center;
+    animation: alternate;
+    animation-duration: 3s;
+}
+.subtitle{
+    text-align: center;
+} */
+
+
+/* title Animations */
+
+@import url(https://fonts.googleapis.com/css?family=Anton);
+
+/* body
+{
+    background: #000;
+} */
+.title-container
+{
+    position :center;
+    
+}
+
+.title
+{
+    font-family: 'Anton', sans-serif;
+    line-height: 1;
+
+    letter-spacing: -.07em;
+
+    color: solid black;
+}
+
+.subtitle
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 45px;
+    line-height: 1;
+
+    margin-top: -11px;
+
+    -webkit-transition: all .3s ease-in-out;
+            transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 3s;
+    -webkit-transform: translateX(-1000%);
+        -ms-transform: translateX(-1000%);
+            transform: translateX(-1000%);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+
+    color: #fc0;
+}
+
+.animate .subtitle
+{
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+
+span
+{
+    font-family: 'Anton', Helvetica, sans-serif;
+    font-size: 40px;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+    color: solid black;
+
+    filter: alpha(opacity=0);
+}
+
+.website
+{
+    -webkit-transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 2.3s;
+            transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 2.3s;
+    letter-spacing: -.07em;
+}
+
+.brewers
+{
+    -webkit-transition: all .3s ease-in-out 2s;
+            transition: all .3s ease-in-out 2s;
+    letter-spacing: -.07em;
+}
+
+.the
+{
+    -webkit-transition: all .3s ease-in-out 1.7s;
+            transition: all .3s ease-in-out 1.7s;
+    letter-spacing: -.07em;
+}
+
+.animate .the
+{
+    font-size: 40px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
+
+.animate .brewers
+{
+    font-size: 60px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
+
+.animate .website
+{
+    font-size: 80px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
