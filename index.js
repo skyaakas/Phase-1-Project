@@ -41,3 +41,8 @@ button.addEventListener("click", function() {
     newsletter.classList.add("bg-active")
 })
 
+const closeButton = document.querySelector(".close-button")
+button.addEventListener("click", function() {
+    newsletter.classList.remove("bg-active")
+})
+
