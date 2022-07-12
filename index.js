@@ -1,5 +1,6 @@
 const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
+const searchForm = document.getElementById("")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://api.punkapi.com/v2/beers")
@@ -57,4 +58,3 @@ window.onload = function() {
     doStuff();
 };
 
-// this is my change 
