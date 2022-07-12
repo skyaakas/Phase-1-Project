@@ -64,3 +64,4 @@ searchForm.addEventListener("submit", event => {
     alert(searchInput.value)
     searchForm.reset()
 })
+
