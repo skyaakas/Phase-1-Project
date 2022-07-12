@@ -28,7 +28,6 @@ function createsNewUser (postOBJ) {
     })
     .then(resp => resp.json())
     .then(data => {
-        debugger
         console.log(data)})
     .catch(error => console.log(error))
 }
