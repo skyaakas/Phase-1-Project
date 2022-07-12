@@ -56,3 +56,5 @@ function doStuff() {
 window.onload = function() {
     doStuff();
 };
+
+// this is my change 
