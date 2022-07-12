@@ -1,0 +1,14 @@
+{
+  "beers": [
+    {
+      "id": 1,
+      "name": "Winter Ale",
+      "abv": "5.0%"
+    },
+    {
+      "name": "Summer Ale",
+      "abv": "7.0%",
+      "id": 2
+    }
+  ]
+}
