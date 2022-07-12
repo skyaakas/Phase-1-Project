@@ -1,37 +1,34 @@
-// function handleForm() {
-//     ramenForm.addEventListener("submit", (e) => {
-//         e.preventDefault()
-//         const newObj = {
-//             name: ramenForm["new-name"].value,
-//             restaurant: ramenForm["new-restaurant"].value,
-//             image: ramenForm["new-image"].value,
-//             rating: ramenForm["new-rating"].value,
-//             comment: ramenForm["new-comment"].value
-//         }
-//         renderRamen(newObj)
-//         renderForm.reset()
-//     })
-// }
 
-const subscribeForm = document.querySelector("#subscribe-form")
-function handleForm() {
-    subscribeForm.addEventListener("submit", (e) => {
+const subscribeForm = document.getElementById("subscribe-form")
+const emailInput = document.getElementById("emailinput")
+const nameInput = document.getElementById("nameinput")
+
+console.log(emailInput.value)
+console.log(nameInput.value)
+
+
+
+subscribeForm.addEventListener("submit", (e) => {
         e.preventDefault()
-        const newUser = {
-            name: subscribeForm["name"].value,
-            email: subscribeForm["email"].value}
-        createsNewUser(newUser)
-        subscribeForm.reset()
-    })}
 
-function createsNewUser(newUser) {
-    fetch("http://localhost:3000/users",  {
+        let newUser = {
+            email: emailInput.value,
+            name: nameInput.value,
+        }
+        createsNewUser(newUser)
+    })
+
+function createsNewUser (postOBJ) {
+    fetch("http://localhost:3000/users", {
         method: 'POST',
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newUser)
+        body: JSON.stringify(postOBJ)
     })
-    .then(res => res.json())
-    .then(user => console.log(user))
+    .then(resp => resp.json())
+    .then(data => {
+        debugger
+        console.log(data)})
+    .catch(error => console.log(error))
 }
