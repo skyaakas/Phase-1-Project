@@ -45,3 +45,14 @@ button.addEventListener("click", function() {
 modalClose.addEventListener("click", function() {  
     newsletter.classList.remove("bg-active")
 })
+
+//For animation purposes
+var hotbod = document.querySelector("body");
+
+function doStuff() {
+    hotbod.className += " animate";
+}
+
+window.onload = function() {
+    doStuff();
+};
