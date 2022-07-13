@@ -21,7 +21,6 @@
 .modal{
     position: relative;
     background-color: white;
-    /* background-image: url(); */
     width: 30%;
     height: 30%;
     display: flex;
@@ -31,10 +30,10 @@
     border-radius: 10px;
 }
 
-#modal-close{
+.modal-close{
     position: relative;
-    /* top: -97px;
-    right: 30px; */
+    top: -97px;
+    right: 30px;
     font-weight: bold;
     cursor: pointer;
     color: black;
