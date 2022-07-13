@@ -2,6 +2,8 @@ const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
 const searchForm = document.getElementById("searchform")
 const searchInput = document.getElementById("searchinput")
+const beerSearchForm = document.getElementById("beer-search")
+const beerInput = document.getElementById("beer-input")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://api.punkapi.com/v2/beers")
@@ -59,9 +61,34 @@ window.onload = function() {
     doStuff();
 };
 
-searchForm.addEventListener("submit", event => {
-    event.preventDefault()
-    alert(searchInput.value)
-    searchForm.reset()
-})
+
+function findsBeer() {
+    beerSearchForm.addEventListener("submit", event => {
+        event.preventDefault()
+        alert(beerInput.value)
+        searchForm.reset()
+    })
+}
+
+// Search Page
+
+function handleRenderSearch(){
+    document.querySelector('#contentContainer').innerHTML = `
+    <form id="beer-search">
+        <label>Find Your Beer <label>
+        <input id="beer-input" type="text" name="search"></input>
+        <input type="submit"></input>
+    </form>
+    `
+
+    document.querySelector('#beer-search').addEventListener('submit', findsBeer )
+}
+
+//Invoking Search Function
+
+document.querySelector('#search').addEventListener('click', handleRenderSearch)
+
+// document.querySelector("#home").addEventListener("click", window.location.reload())
+
+
 
