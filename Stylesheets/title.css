@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Anton);
 
+.title {
+    text-align: center;
+    font-size: medium;
+}
+
+.subtitle {
+    text-align: center;
+}
+
 .title-container
 {
     position :center;
