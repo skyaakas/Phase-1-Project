@@ -40,6 +40,10 @@ function renderData (data) {
         imgContainer.append(plusIcon)
 }
 
+
+
+
+
 //For animation purposes
 var hotbod = document.querySelector("body");
 
@@ -58,6 +62,11 @@ function findsBeer() {
         searchForm.reset()
     })
 }
+
+
+
+
+
 
 // Search Page
 
@@ -80,10 +89,17 @@ document.querySelector('#search').addEventListener('click', handleRenderSearch)
 // document.querySelector("#home").addEventListener("click", window.location.reload())
 
 
+
+
+
+
+// pop up beer info 
+
 const beerInfo = document.createElement("div")
 
 document.addEventListener("click", event => {
     beerInfo.className = "beerInfo"
+
     if(event.target.className === "entry") {
         contentContainer.append(beerInfo)
         beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX + "px"
@@ -95,6 +111,5 @@ document.addEventListener("click", event => {
         
     } else {
         beerInfo.remove()
-        console.log("Removed")
     }
 })
