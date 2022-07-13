@@ -43,5 +43,6 @@ function createsNewUser (postOBJ) {
     .catch(error => {
         alert(`We're sorry! Our boss thinks that ${nameInput.value} is a stupid name. Goodbye.`)
         newsletter.classList.remove("bg-active")
+        subscribeForm.reset()
     })
 }
