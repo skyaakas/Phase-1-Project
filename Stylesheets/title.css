@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Anton);
+
+.title-container
+{
+    position :center;
+    height: 140px;
+}
+
+.title
+{
+    font-family: 'Anton', sans-serif;
+    line-height: 1;
+
+    letter-spacing: -.07em;
+
+    color: solid black;
+}
+
+.subtitle
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    line-height: 3;
+
+    margin-top: -11px;
+
+    -webkit-transition: all .3s ease-in-out;
+            transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 3s;
+    -webkit-transform: translateX(-1000%);
+        -ms-transform: translateX(-1000%);
+            transform: translateX(-1000%);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+
+    color: #fc0;
+}
+
+.animate .subtitle
+{
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+
+span
+{
+    font-family: 'Anton', Helvetica, sans-serif;
+    font-size: 40px;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+    color: solid black;
+
+    filter: alpha(opacity=0);
+}
+
+.website
+{
+    -webkit-transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 2.3s;
+            transition: all .3s cubic-bezier(.190, 1.000, .220, 1.000) 2.3s;
+    letter-spacing: -.07em;
+}
+
+.brewers
+{
+    -webkit-transition: all .3s ease-in-out 2s;
+            transition: all .3s ease-in-out 2s;
+    letter-spacing: -.07em;
+}
+
+.the
+{
+    -webkit-transition: all .3s ease-in-out 1.7s;
+            transition: all .3s ease-in-out 1.7s;
+    letter-spacing: -.07em;
+}
+
+.animate .the
+{
+    font-size: 40px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
+
+.animate .brewers
+{
+    font-size: 60px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
+
+.animate .website
+{
+    font-size: 80px;
+
+    -webkit-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+            transform: scale(1.5,1.5);
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
