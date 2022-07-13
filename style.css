@@ -103,6 +103,18 @@
     border-width: 2px;
 }
 
+.beerInfo {
+    position: absolute;
+    z-index: 2;
+    border: #333;
+    border-radius: 20px;
+    border-width: 1px;
+    background-color: #333;
+    opacity: 85%;
+    width: 500px;
+    height: 500px;
+}
+
 
 /* .title{
     text-align: center;
