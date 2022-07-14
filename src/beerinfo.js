@@ -23,7 +23,7 @@ document.addEventListener("click", event => {
             {transform: `translateX(${transformX})`},
             {transform: "translateX(0px)"}
         ], {
-            duration: 1000,
+            duration: 500,
             })
 
         if(xRange <= screenWidth/2) {
@@ -44,6 +44,7 @@ document.addEventListener("click", event => {
 
         const beerInfoList = document.createElement("ul")
         beerTabTitle.append(beerInfoList)
+        beerInfoList.style.float = "40%"
 
         const brewDate = document.createElement("p")
         brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
