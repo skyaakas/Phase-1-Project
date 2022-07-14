@@ -17,7 +17,17 @@
     float: left;
     margin-right: 0.7%;
     margin-left: 0.7%;
-    /* overflow: hidden;  */
+}
+.entry:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.image {
+    max-width: 82%;
+    max-height: 82%;
+    position: relative;
+    z-index: -1;
+    margin: auto;
 }
 
 #plusEntry {
@@ -34,18 +44,16 @@
 #plusIcon {
     max-width: 50%;
     max-height: 50%;
+    margin: auto;
 
+}
+
+#plusIcon:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 * {
     font-family: 'montserrat', sans-serif;
-}
-
-.image {
-    max-width: 82%;
-    max-height: 82%;
-    z-index: -1;
-    margin: auto;
 }
 
 #searchbutton {
@@ -53,46 +61,4 @@
     border-radius: 4px;
     border-width: 2px;
 }
-
-.beerInfo {
-    position: absolute;
-    z-index: 2;
-    border: #333;
-    border-radius: 20px;
-    border-width: 1px;
-    background-color: #333;
-    opacity: 85%;
-    width: 800px;
-    height: 900px;
-}
-
-
-
-
-
-
-
-
-
-/* .title{
-    text-align: center;
-    animation: alternate;
-    animation-duration: 3s;
-}
-
-
-.subtitle{
-    text-align: center;
-} */
-
-
-/* title Animations */
-
-
-
-/* body
-{
-    background: #000;
-} */
-
 

@@ -7,17 +7,21 @@ const modalButton = document.querySelector(".modal-btn")
 const newsletter = document.querySelector(".modal-bg")
 const modalClose = document.querySelector(".modal-close")
 
+let modalOpen = 0
+
 
 
 modalButton.addEventListener("click", function() {
     newsletter.classList.add("bg-active")
+    modalOpen = 1
+    console.log(modalOpen)
 })
 
 modalClose.addEventListener("click", function() {  
     newsletter.classList.remove("bg-active")
+    modalOpen = 0
+    console.log(modalOpen)
 })
-
-
 
 subscribeForm.addEventListener("submit", (e) => {
         e.preventDefault()
@@ -43,6 +47,9 @@ function createsNewUser (postOBJ) {
     .catch(error => {
         alert(`We're sorry! Our boss thinks that ${nameInput.value} is a stupid name. Goodbye.`)
         newsletter.classList.remove("bg-active")
+        modalOpen = 0
+        console.log(modalOpen)
         subscribeForm.reset()
     })
 }
+
