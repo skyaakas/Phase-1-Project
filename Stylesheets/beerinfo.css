@@ -65,6 +65,7 @@
     float: left;
     margin-left: 3%;
     margin-right: 3%;
+    font-size: large;
 }
 
 .beerFoodPair {
@@ -72,5 +73,13 @@
     float: left;
     margin-right: 3%;
     margin-left: 3%;
+    font-size: large;
+}
 
+.recipeHeader {
+    color: white;
+    float: left;
+    margin-right: 90%;
+    margin-left: 3%;
+    
 }
