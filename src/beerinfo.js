@@ -23,20 +23,24 @@ document.addEventListener("click", event => {
         beerPic.className = "beerPic"
         beerInfo.append(beerPic)
 
+        const beerInfoList = document.createElement("ul")
+        beerInfo.append(beerInfoList)
+
+
         const brewDate = document.createElement("li")
         brewDate.textContent = beerData[event.target.id - 1].first_brewed
         brewDate.className = "brewDate"
-        beerInfo.append(brewDate)
+        beerInfoList.append(brewDate)
 
         const beerTagline = document.createElement("li")
         beerTagline.textContent = beerData[event.target.id - 1].tagline
         beerTagline.className = "beerTagline"
-        beerInfo.append(beerTagline)
+        beerInfoList.append(beerTagline)
 
         const beerABV = document.createElement("li")
         beerABV.textContent = beerData[event.target.id - 1].abv
         beerABV.className = "beerABV"
-        beerInfo.append(beerABV)
+        beerInfoList.append(beerABV)
 
         const beerDescription = document.createElement("p")
         beerDescription.textContent = beerData[event.target.id - 1].description
