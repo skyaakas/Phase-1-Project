@@ -71,7 +71,7 @@ document.addEventListener("click", event => {
         if(xRange > screenWidth/2) {
 
             contentContainer.append(beerInfo)
-            beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX - 800 + event.target.offsetWidth + "px"
+            beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX - beerInfo.clientWidth + event.target.offsetWidth + "px"
             beerInfo.style.top = event.target.getBoundingClientRect().top + window.scrollY + "px"
 
             const beerTabTitle = document.createElement("h1")
