@@ -5,27 +5,14 @@
     border-radius: 20px;
     border-width: 1px;
     background-color: #333;
-    opacity: 100%;
     width: 40%;
     height: 90%;
-
-    /* animation-name: slideIn;
-    animation-duration: 1s; */
 }
-
-/* @keyframes slideIn {
-    from {
-        margin-left: -20%;
-    }
-    to {
-        margin-left: 0%;
-    }
-} */
 
 .beerTabTitle {
     color: white;
     float: right;
-    margin-right: 13%;
+    margin-right: 5%;
 }
 
 .beerPic {
