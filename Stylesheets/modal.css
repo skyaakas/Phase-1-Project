@@ -32,8 +32,8 @@
 
 .modal-close{
     position: relative;
-    top: -97px;
-    right: 30px;
+    left: 47%;
+    bottom: 89%;
     font-weight: bold;
     cursor: pointer;
     color: black;
