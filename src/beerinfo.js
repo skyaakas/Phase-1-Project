@@ -4,11 +4,6 @@ const entryArry = document.getElementsByClassName("entry")
 document.addEventListener("click", event => {
     beerInfo.className = "beerInfo"
 
-    console.log("Target:")
-    console.log(event.target)
-    console.log("Child:")
-    console.log(event.target.children[0])
-
     if(event.target.className === "entry") {
         while(beerInfo.firstChild) {
             beerInfo.removeChild(beerInfo.firstChild)
@@ -23,25 +18,29 @@ document.addEventListener("click", event => {
         beerTabTitle.textContent = beerData[event.target.id - 1].name
         beerInfo.append(beerTabTitle)
 
-        const beerType = document.createElement("li")
-        beerType.textContent = beerData[event.target.id - 1].type
-        beerType.className = "beerType"
-        beerInfo.append(beerType)
+        const beerPic = document.createElement("img")
+        beerPic.src = beerData[event.target.id - 1].image_url
+        beerPic.className = "beerPic"
+        beerInfo.append(beerPic)
+
+        const beerInfoList = document.createElement("ul")
+        beerInfo.append(beerInfoList)
+
 
         const brewDate = document.createElement("li")
         brewDate.textContent = beerData[event.target.id - 1].first_brewed
         brewDate.className = "brewDate"
-        beerInfo.append(brewDate)
+        beerInfoList.append(brewDate)
 
         const beerTagline = document.createElement("li")
         beerTagline.textContent = beerData[event.target.id - 1].tagline
         beerTagline.className = "beerTagline"
-        beerInfo.append(beerTagline)
+        beerInfoList.append(beerTagline)
 
         const beerABV = document.createElement("li")
         beerABV.textContent = beerData[event.target.id - 1].abv
         beerABV.className = "beerABV"
-        beerInfo.append(beerABV)
+        beerInfoList.append(beerABV)
 
         const beerDescription = document.createElement("p")
         beerDescription.textContent = beerData[event.target.id - 1].description
