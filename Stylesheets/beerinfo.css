@@ -6,8 +6,8 @@
     border-width: 1px;
     background-color: #333;
     opacity: 100%;
-    width: 800px;
-    height: 900px;
+    width: 40%;
+    height: 90%;
 
     animation-name: slideIn;
     animation-duration: 1s;
