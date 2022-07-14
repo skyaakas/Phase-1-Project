@@ -8,6 +8,18 @@
     opacity: 100%;
     width: 800px;
     height: 900px;
+
+    animation-name: slideIn;
+    animation-duration: 1s;
+}
+
+@keyframes slideIn {
+    from {
+        margin-left: -20%;
+    }
+    to {
+        margin-left: 0%;
+    }
 }
 
 .beerTabTitle {
