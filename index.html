@@ -11,11 +11,13 @@
     <link rel='stylesheet' type='text/css' media='screen' href='Stylesheets/navbar.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='Stylesheets/title.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='Stylesheets/beerinfo.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Stylesheets/filter.css'>
 
     <script src='src/index.js' defer></script>
     <script src="src/form.js" defer></script>
     <script src="src/search.js" defer></script>
     <script src="src/beerinfo.js" defer></script>
+    <script src="src/filter.js" defer></script>
     <!-- <script src="src/beers.js" defer></script> -->
 
     <button class="modal-btn">Subscribe to our Newsletter</button>
@@ -25,8 +27,32 @@
         <a href="#explore">Explore </a>
         <a id="search" href="#search">Search Your Beer</a>
       </div>
+      <div class="dropdown">
+        <button class="dropbtn">Type</button>
+        <div class="dropdown-content">
+        <a onclick="grabCategory(event)">Ale</a>
+        <a onclick="grabCategory(event)">IPA</a>
+        <a onclick="grabCategory(event)">Lager</a>
+        <a onclick="grabCategory(event)">Pilsner</a>
+        <a onclick="grabCategory(event)">Malted</a>
+        <a onclick="grabCategory(event)">Porter</a>
+        <a onclick="grabCategory(event)">Wheat Beer</a>
+        <a onclick="grabCategory(event)">Barleywine</a>
+        </div>
+      </div>
 </head>
 <body>
+    <div class="search-wrapper">
+        <label for="search">Search Beers</label>
+        <input type="search" id="search" data-search>
+      </div>
+      <div class="user-cards" data-user-cards-container></div>
+      <template data-user-template>
+        <div class="card">
+          <div class="header" data-header></div>
+          <div class="body" data-body></div>
+        </div>
+      </template>
     <div class="title-container">  
         <div class="title">
           <span class="the">THE</span><span class="brewers">BREWER'S</S></span><span class="website">WEBSITE</span>
@@ -45,8 +71,10 @@
         </form>
         
     </div>
+    
 </div>
     </form> 
     <div id="contentContainer"></div>
+    <div id="filter-content-container"></div>
 </body>
 </html>
