@@ -9,3 +9,41 @@
     width: 800px;
     height: 900px;
 }
+
+.beerTabTitle {
+    color: white;
+    float: right;
+    margin-right: 3%;
+}
+
+.beerType {
+    color: white;
+    margin-left: 3%;
+}
+
+.brewDate {
+    color: white;
+    margin-left: 3%;
+}
+
+.beerABV {
+    color: white;
+    margin-left: 3%;
+}
+
+.beerTagline {
+    color: white;
+    margin-left: 3%;
+}
+
+.beerDescription {
+    color: white;
+    float: right;
+    margin: auto;
+}
+
+.beerFoodPair {
+    color: white;
+    float: right;
+    margin-right: 3%;
+}
