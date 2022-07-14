@@ -14,7 +14,10 @@ document.addEventListener("click", event => {
 
         const xRange = event.target.getBoundingClientRect().left + window.scrollX
 
-        if(xRange < 800) {
+        const screenWidth = document.body.clientWidth
+        console.log(`Window: ${screenWidth}px`)
+
+        if(xRange <= screenWidth/2) {
 
         contentContainer.append(beerInfo)
         beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX + "px"
@@ -33,18 +36,18 @@ document.addEventListener("click", event => {
         const beerInfoList = document.createElement("ul")
         beerTabTitle.append(beerInfoList)
 
-        const brewDate = document.createElement("li")
-        brewDate.textContent = beerData[event.target.id - 1].first_brewed
+        const brewDate = document.createElement("p")
+        brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
         brewDate.className = "brewDate"
         beerInfoList.append(brewDate)
 
-        const beerTagline = document.createElement("li")
+        const beerTagline = document.createElement("p")
         beerTagline.textContent = beerData[event.target.id - 1].tagline
         beerTagline.className = "beerTagline"
         beerInfoList.append(beerTagline)
 
-        const beerABV = document.createElement("li")
-        beerABV.textContent = beerData[event.target.id - 1].abv
+        const beerABV = document.createElement("p")
+        beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
         beerABV.className = "beerABV"
         beerInfoList.append(beerABV)
 
@@ -54,16 +57,18 @@ document.addEventListener("click", event => {
         beerInfo.append(beerDescription)
 
         const beerFoodPair = document.createElement("p")
-        beerFoodPair.textContent = beerData[event.target.id - 1].food_pairing
+        beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
         beerFoodPair.className = "beerFoodPair"
         beerInfo.append(beerFoodPair)
 
+        const recipeHeader = document.createElement("h2")
+        recipeHeader.textContent = "Recipe:"
+        recipeHeader.className = "recipeHeader"
+        beerInfo.append(recipeHeader)
+
         }
 
-        console.log("Width:")
-        console.log(event.target.offsetWidth)
-
-        if(xRange > 800) {
+        if(xRange > screenWidth/2) {
 
             contentContainer.append(beerInfo)
             beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX - 800 + event.target.offsetWidth + "px"
@@ -89,17 +94,17 @@ document.addEventListener("click", event => {
             beerInfoList.className = "beerInfoList"
             beerTabTitle.append(beerInfoList)
     
-            const brewDate = document.createElement("li")
+            const brewDate = document.createElement("p")
             brewDate.textContent = beerData[event.target.id - 1].first_brewed
             brewDate.className = "brewDate"
             beerInfoList.append(brewDate)
     
-            const beerTagline = document.createElement("li")
+            const beerTagline = document.createElement("p")
             beerTagline.textContent = beerData[event.target.id - 1].tagline
             beerTagline.className = "beerTagline"
             beerInfoList.append(beerTagline)
     
-            const beerABV = document.createElement("li")
+            const beerABV = document.createElement("p")
             beerABV.textContent = beerData[event.target.id - 1].abv
             beerABV.className = "beerABV"
             beerInfoList.append(beerABV)
