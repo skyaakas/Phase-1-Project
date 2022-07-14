@@ -18,13 +18,42 @@ document.addEventListener("click", event => {
         beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX + "px"
         beerInfo.style.top = event.target.getBoundingClientRect().top + window.scrollY + "px"
 
-        const beerTabTitle = document.createElement("h2")
+        const beerTabTitle = document.createElement("h1")
+        beerTabTitle.className = "beerTabTitle"
         beerTabTitle.textContent = beerData[event.target.id - 1].name
-        beerTabTitle.style.color = "white"
         beerInfo.append(beerTabTitle)
 
+        const beerType = document.createElement("li")
+        beerType.textContent = beerData[event.target.id - 1].type
+        beerType.className = "beerType"
+        beerInfo.append(beerType)
 
-        console.log(event.target.id)
+        const brewDate = document.createElement("li")
+        brewDate.textContent = beerData[event.target.id - 1].first_brewed
+        brewDate.className = "brewDate"
+        beerInfo.append(brewDate)
+
+        const beerTagline = document.createElement("li")
+        beerTagline.textContent = beerData[event.target.id - 1].tagline
+        beerTagline.className = "beerTagline"
+        beerInfo.append(beerTagline)
+
+        const beerABV = document.createElement("li")
+        beerABV.textContent = beerData[event.target.id - 1].abv
+        beerABV.className = "beerABV"
+        beerInfo.append(beerABV)
+
+        const beerDescription = document.createElement("p")
+        beerDescription.textContent = beerData[event.target.id - 1].description
+        beerDescription.className = "beerDescription"
+        beerInfo.append(beerDescription)
+
+        const beerFoodPair = document.createElement("p")
+        beerFoodPair.textContent = beerData[event.target.id - 1].food_pairing
+        beerFoodPair.className = "beerFoodPair"
+        beerInfo.append(beerFoodPair)
+
+
 
         // beerData[event.target.id].name
 
