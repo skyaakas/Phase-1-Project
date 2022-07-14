@@ -68,7 +68,7 @@ document.addEventListener("click", event => {
             contentContainer.append(beerInfo)
             beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX - 800 + event.target.offsetWidth + "px"
             beerInfo.style.top = event.target.getBoundingClientRect().top + window.scrollY + "px"
-    
+
             const beerTabTitle = document.createElement("h1")
             beerTabTitle.className = "beerTabTitle"
             beerTabTitle.textContent = beerData[event.target.id - 1].name
