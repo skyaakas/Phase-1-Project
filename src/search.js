@@ -1,5 +1,3 @@
-const contentContainer = document.getElementById("contentContainer")
-
 const searchForm = document.getElementById("searchform")
 const searchInput = document.getElementById("searchinput")
 const beerSearchForm = document.querySelector("#beer")
