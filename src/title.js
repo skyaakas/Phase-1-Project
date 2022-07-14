@@ -7,11 +7,3 @@ function doStuff() {
 window.onload = function() {
     doStuff();
 };
-
-function findsBeer() {
-    beerSearchForm.addEventListener("submit", event => {
-        event.preventDefault()
-        alert(beerInput.value)
-        searchForm.reset()
-    })
-}
