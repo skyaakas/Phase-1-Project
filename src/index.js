@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function renderData (data) {
-    console.log(data)
+    // console.log(data)
     data.forEach((element, index, array) => {
 
         const imgContainer = document.createElement("div")
@@ -38,6 +38,13 @@ function renderData (data) {
         plusIcon.src = "Images/PlusIcon.png"
         plusIcon.id = "plusIcon"
         imgContainer.append(plusIcon)
+
+        contentContainer.children[0].remove()
+        contentContainer.children[1].remove()
+        contentContainer.children[8].remove()
+        contentContainer.children[16].remove()
+        contentContainer.children[16].remove()
+        contentContainer.children[18].remove()
 }
 
 
