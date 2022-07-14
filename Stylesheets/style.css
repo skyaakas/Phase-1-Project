@@ -20,6 +20,14 @@
     /* overflow: hidden;  */
 }
 
+.image {
+    max-width: 82%;
+    max-height: 82%;
+    position: relative;
+    z-index: -1;
+    margin: auto;
+}
+
 #plusEntry {
     display: flex;
     flex-direction: column;
@@ -34,18 +42,12 @@
 #plusIcon {
     max-width: 50%;
     max-height: 50%;
+    margin: auto;
 
 }
 
 * {
     font-family: 'montserrat', sans-serif;
-}
-
-.image {
-    max-width: 82%;
-    max-height: 82%;
-    z-index: -1;
-    margin: auto;
 }
 
 #searchbutton {
