@@ -59,6 +59,41 @@ const beerInput = document.getElementById("beer-input")
 //     doStuff();
 // };
 
+//Making new function for displaying Search results
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("https://api.punkapi.com/v2/beers")
+    .then(resp => resp.json())
+    .then(data => searchData(data))
+})
+
+function searchData (data) {
+    // console.log(data)
+    
+
+    data.forEach((element, index, array) => {
+
+        const imgContainer = document.createElement("div")
+        imgContainer.className = "entry"
+        contentContainer.append(imgContainer)
+        imgContainer.id = element.id
+
+        const image = document.createElement("img")
+        image.className = "image"
+        image.src = array[index].image_url
+        imgContainer.append(image)
+
+        const title = document.createElement("h2")
+        title.className = "title"
+        title.textContent = array[index].name
+        imgContainer.append(title)
+    })
+
+        const imgContainer = document.createElement("div")
+        imgContainer.id = "plusEntry"
+        contentContainer.append(imgContainer)
+
+}
 
 function findsBeer() {
     beer.addEventListener("submit", (e) => {
@@ -67,9 +102,10 @@ function findsBeer() {
         fetch("https://api.punkapi.com/v2/beers")
         .then(res => res.json())
         .then(beerArr => {
-            const result = beerArr.find(beer =>beer.name.toUpperCase()==search);
-            renderData([result]);
+            let result = beerArr.find(beer =>beer.name.toUpperCase()==search);
+            searchData([result]);
         })
+        
         // let searchInput = beerInput.value.toUpperCase();
         // alert(beerInput.value)
         // fetchSearches(searchInput);

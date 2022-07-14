@@ -66,3 +66,9 @@
     border-width: 2px;
 }
 
+#beer{
+    position: fixed;
+    left : 300px
+}
+
+
