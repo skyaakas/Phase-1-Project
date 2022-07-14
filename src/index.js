@@ -1,9 +1,7 @@
 const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
-const searchForm = document.getElementById("searchform")
-const searchInput = document.getElementById("searchinput")
-const beerSearchForm = document.getElementById("beer-search")
-const beerInput = document.getElementById("beer-input")
+
+let beerData
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://api.punkapi.com/v2/beers")
@@ -13,11 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderData (data) {
     // console.log(data)
+    beerData = data
+
     data.forEach((element, index, array) => {
 
         const imgContainer = document.createElement("div")
         imgContainer.className = "entry"
         contentContainer.append(imgContainer)
+        imgContainer.id = element.id
 
         const image = document.createElement("img")
         image.className = "image"
