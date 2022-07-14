@@ -9,18 +9,18 @@
     width: 40%;
     height: 90%;
 
-    animation-name: slideIn;
-    animation-duration: 1s;
+    /* animation-name: slideIn;
+    animation-duration: 1s; */
 }
 
-@keyframes slideIn {
+/* @keyframes slideIn {
     from {
         margin-left: -20%;
     }
     to {
         margin-left: 0%;
     }
-}
+} */
 
 .beerTabTitle {
     color: white;
