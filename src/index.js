@@ -95,3 +95,5 @@ function handleRenderSearch(){
 document.querySelector('#search').addEventListener('click', handleRenderSearch)
 
 // document.querySelector("#home").addEventListener("click", window.location.reload())
+
+document.addEventListener("click", console.log(`Beer Data: ${beerData}`))
