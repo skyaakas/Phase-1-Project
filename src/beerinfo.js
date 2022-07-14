@@ -14,9 +14,10 @@ document.addEventListener("click", event => {
         const screenWidth = document.body.clientWidth
 
         let transformX = "-300px"
-
+        
         if(lastEntry) {
-            transformX = -300 * (event.target.id - lastEntry.id)/(Math.abs(event.target.id - lastEntry.id)) + "px"
+            transformX = -(event.target.getBoundingClientRect().left - lastEntry.getBoundingClientRect().left) + "px"
+            //transformX = -300 * (event.target.id - lastEntry.id)/(Math.abs(event.target.id - lastEntry.id)) + "px"
         }
          // animation
          beerInfo.animate([
