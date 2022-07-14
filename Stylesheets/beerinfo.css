@@ -16,6 +16,11 @@
     margin-right: 3%;
 }
 
+.beerPic {
+    max-width: 40%;
+    max-height: 40%;
+}
+
 .beerType {
     color: white;
     margin-left: 3%;
