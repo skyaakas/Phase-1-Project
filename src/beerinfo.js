@@ -1,5 +1,6 @@
 const beerInfo = document.createElement("div")
 const entryArry = document.getElementsByClassName("entry")
+let lastEntry
 
 document.addEventListener("click", event => {
     beerInfo.className = "beerInfo"
@@ -9,13 +10,21 @@ document.addEventListener("click", event => {
             beerInfo.removeChild(beerInfo.firstChild)
         }
 
-        console.log(`x.pos ${event.target.getBoundingClientRect().left + window.scrollX}`)
-        console.log(`y.pos ${event.target.getBoundingClientRect().top + window.scrollY}`)
-
         const xRange = event.target.getBoundingClientRect().left + window.scrollX
-
         const screenWidth = document.body.clientWidth
-        console.log(`Window: ${screenWidth}px`)
+
+        let transformX = "-300px"
+
+        if(lastEntry) {
+            transformX = -300 * (event.target.id - lastEntry.id)/(Math.abs(event.target.id - lastEntry.id)) + "px"
+        }
+         // animation
+         beerInfo.animate([
+            {transform: `translateX(${transformX})`},
+            {transform: "translateX(0px)"}
+        ], {
+            duration: 1000,
+            })
 
         if(xRange <= screenWidth/2) {
 
@@ -123,6 +132,8 @@ document.addEventListener("click", event => {
     
             }
         
+            lastEntry = event.target
+
     } else {
 
         beerInfo.remove()
