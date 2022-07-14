@@ -19,6 +19,7 @@
 .beerPic {
     margin-left: 10%;
     margin-top: 4%;
+    margin-bottom: 3%;
     max-width: 40%;
     max-height: 40%;
 }
@@ -26,31 +27,38 @@
 .beerType {
     color: white;
     margin-left: 3%;
+    font-size: large;
 }
 
 .brewDate {
     color: white;
     margin-left: 3%;
+    font-size: large;
 }
 
 .beerABV {
     color: white;
     margin-left: 3%;
+    font-size: large;
 }
 
 .beerTagline {
     color: white;
     margin-left: 3%;
+    font-size: large;
 }
 
 .beerDescription {
     color: white;
-    float: right;
-    margin: auto;
+    float: left;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .beerFoodPair {
     color: white;
-    float: right;
+    float: left;
     margin-right: 3%;
+    margin-left: 3%;
+
 }
