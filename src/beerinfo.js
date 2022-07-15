@@ -61,7 +61,6 @@ document.addEventListener("click", event => {
 
         const beerInfoList = document.createElement("ul")
         beerTabTitle.append(beerInfoList)
-        beerInfoList.style.float = "40%"
 
         const brewDate = document.createElement("p")
         brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
@@ -107,7 +106,6 @@ document.addEventListener("click", event => {
             beerInfo.append(beerTabTitle)
             beerTabTitle.style.float = "left"
             beerTabTitle.style.marginLeft = "13%"
-           //beerTabTitle.style.
     
             const beerPic = document.createElement("img")
             beerPic.src = beerData[event.target.id - 1].image_url
@@ -117,24 +115,24 @@ document.addEventListener("click", event => {
             beerPic.style.marginRight = "10%"
             beerPic.style.marginLeft = "0%"
     
-            const beerInfoList = document.createElement("ul")
-            beerInfoList.className = "beerInfoList"
-            beerTabTitle.append(beerInfoList)
+            // const beerInfoList = document.createElement("ul")
+            // beerInfoList.className = "beerInfoList"
+            // beerTabTitle.append(beerInfoList)
     
             const brewDate = document.createElement("p")
-            brewDate.textContent = beerData[event.target.id - 1].first_brewed
+            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
             brewDate.className = "brewDate"
-            beerInfoList.append(brewDate)
+            beerTabTitle.append(brewDate)
     
             const beerTagline = document.createElement("p")
             beerTagline.textContent = beerData[event.target.id - 1].tagline
             beerTagline.className = "beerTagline"
-            beerInfoList.append(beerTagline)
+            beerTabTitle.append(beerTagline)
     
             const beerABV = document.createElement("p")
-            beerABV.textContent = beerData[event.target.id - 1].abv
+            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
             beerABV.className = "beerABV"
-            beerInfoList.append(beerABV)
+            beerTabTitle.append(beerABV)
     
             const beerDescription = document.createElement("p")
             beerDescription.textContent = beerData[event.target.id - 1].description
@@ -143,7 +141,7 @@ document.addEventListener("click", event => {
             beerDescription.style.marginLeft = "5%"
     
             const beerFoodPair = document.createElement("p")
-            beerFoodPair.textContent = beerData[event.target.id - 1].food_pairing
+            beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
             beerFoodPair.className = "beerFoodPair"
             beerInfo.append(beerFoodPair)
             beerFoodPair.style.marginLeft = "5%"
@@ -151,8 +149,8 @@ document.addEventListener("click", event => {
             }
         
             lastEntry = event.target
-            lastPosX = lastEntry.getBoundingClientRect().left
-            lastPosY = lastEntry.getBoundingClientRect().top
+            lastPosX = lastEntry.getBoundingClientRect().left + window.scrollX
+            lastPosY = lastEntry.getBoundingClientRect().top + window.scrollY
 
             console.log(lastPosX)
 
