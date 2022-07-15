@@ -56,6 +56,12 @@
 
 .recipeHeader {
     color: white;
-    margin-right: 90%;
     margin-left: 5%;
+}
+
+.beerRecipe {
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: large;
 }
