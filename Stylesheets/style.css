@@ -67,7 +67,7 @@
 }
 
 #beer{
-    position: fixed;
+    position: sticky;
     left : 300px
 }
 
@@ -100,14 +100,14 @@
     overflow-y: auto;
     opacity: 0;
     pointer-events: none;
-    position: fixed;
+    position: sticky;
 }
 
 #beer.active .autocom-box{
     padding : 10px 8px;
     opacity: 1;
     pointer-events: auto;
-    position: fixed;
+    position: sticky;
 }
 
 #beer.active .autocom-box li {
@@ -121,6 +121,7 @@
     cursor :default;
     border-radius :3px;
     display: none;
+    position: sticky;
 
 }
 
