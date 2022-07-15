@@ -1,23 +1,36 @@
 const beerInfo = document.createElement("div")
+    beerInfo.className = "beerInfo"
 const entryArry = document.getElementsByClassName("entry")
 let lastEntry
 let lastPosX
 let lastPosY
 
 document.addEventListener("click", event => {
-    beerInfo.className = "beerInfo"
-
-    const targetPosX = event.target.getBoundingClientRect().left + window.scrollX
-    const targetPosY = event.target.getBoundingClientRect().top + window.scrollY
-    const tabWidth = beerInfo.offsetWidth
-    const cardWidth = event.target.offsetWidth
     
-    const screenWidth = document.body.clientWidth
-
     if(event.target.className === "entry") {
         while(beerInfo.firstChild) {
             beerInfo.removeChild(beerInfo.firstChild)
         }
+
+        console.log(beerData[event.target.id - 1])
+
+        const targetPosX = event.target.getBoundingClientRect().left + window.scrollX
+        const targetPosY = event.target.getBoundingClientRect().top + window.scrollY
+        const tabWidth = beerInfo.offsetWidth
+        const cardWidth = event.target.offsetWidth
+        const screenWidth = document.body.clientWidth
+
+        const apiEntry = beerData[event.target.id - 1]
+        const maltArray = apiEntry.ingredients.malt
+
+        let maltUnits = []
+        let maltAmounts = []
+    
+        maltArray.forEach((element, index, array) => {
+            maltAmounts.push(array[index].amount.value)
+        })
+
+        console.log(maltAmounts)
 
         let transformX = "-300px"
         
@@ -57,7 +70,7 @@ document.addEventListener("click", event => {
 
             // image
             const beerPic = document.createElement("img")
-            beerPic.src = beerData[event.target.id - 1].image_url
+            beerPic.src = apiEntry.image_url
             beerPic.className = "beerPic"
             beerHeader.append(beerPic)
 
@@ -69,34 +82,34 @@ document.addEventListener("click", event => {
             // title
             const beerTabTitle = document.createElement("h1")
             beerTabTitle.className = "beerTabTitle"
-            beerTabTitle.textContent = beerData[event.target.id - 1].name
+            beerTabTitle.textContent = apiEntry.name
             minorInfo.append(beerTabTitle)
 
             // info points
             const brewDate = document.createElement("p")
-            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
+            brewDate.textContent = "First brewed " + apiEntry.first_brewed
             brewDate.className = "infoPoint"
             minorInfo.append(brewDate)
 
             const beerTagline = document.createElement("p")
-            beerTagline.textContent = beerData[event.target.id - 1].tagline
+            beerTagline.textContent = apiEntry.tagline
             beerTagline.className = "infoPoint"
             minorInfo.append(beerTagline)
 
             const beerABV = document.createElement("p")
-            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
+            beerABV.textContent = "ABV: " + apiEntry.abv + "%"
             beerABV.className = "infoPoint"
             minorInfo.append(beerABV)
 
 
             // major info
             const beerDescription = document.createElement("p")
-            beerDescription.textContent = beerData[event.target.id - 1].description
+            beerDescription.textContent = apiEntry.description
             beerDescription.className = "beerDescription"
             beerInfo.append(beerDescription)
 
             const beerFoodPair = document.createElement("p")
-            beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
+            beerFoodPair.textContent = "Pairs well with " + apiEntry.food_pairing
             beerFoodPair.className = "beerFoodPair"
             beerInfo.append(beerFoodPair)
 
@@ -106,13 +119,18 @@ document.addEventListener("click", event => {
             recipeHeader.className = "recipeHeader"
             beerInfo.append(recipeHeader)
 
+            const beerRecipe = document.createElement("p")
+            beerRecipe.className = "beerRecipe"
+            beerInfo.append(beerRecipe)
+            beerRecipe.textContent = `Combine all of the hops and malt in ${apiEntry.boil_volume.value} liters of water and bring to a boil. Bring the temperature down to ${apiEntry.method.mash_temp[0].temp.value} degrees celsius and continue heating for ${apiEntry.method.mash_temp[0].duration} minutes. Allow to cool to approximately ${apiEntry.method.fermentation.temp.value} degrees celsius and add the yeast (${apiEntry.ingredients.yeast}). Keep the pH near ${apiEntry.ph}. ${apiEntry.brewers_tips} Good luck!`
+
         }
 
         if(targetPosX > screenWidth/2) {
 
             // main div
             contentContainer.append(beerInfo)
-            beerInfo.style.left = targetPosX - beerInfo.clientWidth + event.target.offsetWidth + "px"
+            beerInfo.style.left = targetPosX - tabWidth + cardWidth + "px"
             beerInfo.style.top = targetPosY + "px"
 
             // header div
@@ -128,39 +146,39 @@ document.addEventListener("click", event => {
             // title
             const beerTabTitle = document.createElement("h1")
             beerTabTitle.className = "beerTabTitle"
-            beerTabTitle.textContent = beerData[event.target.id - 1].name
+            beerTabTitle.textContent = apiEntry.name
             minorInfo.append(beerTabTitle)
 
             // info points
             const brewDate = document.createElement("p")
-            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
+            brewDate.textContent = "First brewed " + apiEntry.first_brewed
             brewDate.className = "infoPoint"
             minorInfo.append(brewDate)
 
             const beerTagline = document.createElement("p")
-            beerTagline.textContent = beerData[event.target.id - 1].tagline
+            beerTagline.textContent = apiEntry.tagline
             beerTagline.className = "infoPoint"
             minorInfo.append(beerTagline)
 
             const beerABV = document.createElement("p")
-            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
+            beerABV.textContent = "ABV: " + apiEntry.abv + "%"
             beerABV.className = "infoPoint"
             minorInfo.append(beerABV)
 
             // image
             const beerPic = document.createElement("img")
-            beerPic.src = beerData[event.target.id - 1].image_url
+            beerPic.src = apiEntry.image_url
             beerPic.className = "beerPic"
             beerHeader.append(beerPic)
 
             // major info
             const beerDescription = document.createElement("p")
-            beerDescription.textContent = beerData[event.target.id - 1].description
+            beerDescription.textContent = apiEntry.description
             beerDescription.className = "beerDescription"
             beerInfo.append(beerDescription)
 
             const beerFoodPair = document.createElement("p")
-            beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
+            beerFoodPair.textContent = "Pairs well with " + apiEntry.food_pairing
             beerFoodPair.className = "beerFoodPair"
             beerInfo.append(beerFoodPair)
 
@@ -169,6 +187,12 @@ document.addEventListener("click", event => {
             recipeHeader.textContent = "Recipe:"
             recipeHeader.className = "recipeHeader"
             beerInfo.append(recipeHeader)
+
+            const beerRecipe = document.createElement("p")
+            beerRecipe.className = "beerRecipe"
+            beerInfo.append(beerRecipe)
+            beerRecipe.textContent = `Combine all of the hops and malt in ${apiEntry.boil_volume.value} liters of water and bring to a boil. Bring the temperature down to ${apiEntry.method.mash_temp[0].temp.value} degrees celsius and continue heating for ${apiEntry.method.mash_temp[0].duration} minutes. Allow to cool to approximately ${apiEntry.method.fermentation.temp.value} degrees celsius and add the yeast (${apiEntry.ingredients.yeast}). Keep the pH near ${apiEntry.ph}. ${apiEntry.brewers_tips} Good luck!`
+
 
             // styling
             beerPic.style.marginLeft = "auto"
@@ -183,10 +207,7 @@ document.addEventListener("click", event => {
             lastPosX = lastEntry.getBoundingClientRect().left + window.scrollX
             lastPosY = lastEntry.getBoundingClientRect().top + window.scrollY
 
-            console.log(lastPosX)
-
     } else {
-
         beerInfo.remove()
 
     }
