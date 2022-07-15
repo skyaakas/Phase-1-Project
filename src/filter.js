@@ -17,10 +17,11 @@
 // const filterAbvCb = filter(collection,function (input) {
 //     return beer.abv === input;
 // });
+
 const filterContainer = document.getElementById("filter-content-container")
+
 function filterData (data) {
     console.log(data)
-    beerData = data
 
     data.forEach((element, index, array) => {
 
@@ -43,10 +44,10 @@ function filterData (data) {
 
 function grabCategory(event) {
     const alcohol = event.target.textContent
-    console.log(alcohol)
+    console.log("Alcohol: " + alcohol)
     filterCategory(alcohol)
     contentContainer.style.display = "none"
-    while(filterContainer) {
+    while(filterContainer.firstChild) {
         filterContainer.removeChild(filterContainer.firstChild)
     }
     // filterContainer.removeChild(filterContainer)
