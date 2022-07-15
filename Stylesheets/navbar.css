@@ -22,6 +22,6 @@
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: gold;
+    background-color: #fc0;
     color: white;
   }
