@@ -1,5 +1,3 @@
-console.log(apiKey)
-
 const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
 
