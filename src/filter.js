@@ -46,6 +46,9 @@ function grabCategory(event) {
     console.log(alcohol)
     filterCategory(alcohol)
     contentContainer.style.display = "none"
+    filterContainer.removeChild(filterContainer)
+    // 
+    
 
 }
 
