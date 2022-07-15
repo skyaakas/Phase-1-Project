@@ -22,6 +22,7 @@
     margin-bottom: 3%;
     max-width: 40%;
     max-height: 40%;
+    float: left;
 }
 
 .beerType {
@@ -46,6 +47,7 @@
     color: white;
     margin-left: 3%;
     font-size: large;
+    max-width: 60%;
 }
 
 .beerDescription {
