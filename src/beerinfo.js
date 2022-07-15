@@ -1,22 +1,38 @@
 const beerInfo = document.createElement("div")
 const entryArry = document.getElementsByClassName("entry")
 let lastEntry
+let lastPosX
+let lastPosY
 
 document.addEventListener("click", event => {
     beerInfo.className = "beerInfo"
+
+    const targetPosX = event.target.getBoundingClientRect().left + window.scrollX
+    const targetPosY = event.target.getBoundingClientRect().top + window.scrollY
+    const tabWidth = beerInfo.offsetWidth
+    const cardWidth = event.target.offsetWidth
+    
+    const screenWidth = document.body.clientWidth
 
     if(event.target.className === "entry") {
         while(beerInfo.firstChild) {
             beerInfo.removeChild(beerInfo.firstChild)
         }
 
-        const xRange = event.target.getBoundingClientRect().left + window.scrollX
-        const screenWidth = document.body.clientWidth
-
         let transformX = "-300px"
         
         if(lastEntry) {
-            transformX = -(event.target.getBoundingClientRect().left - lastEntry.getBoundingClientRect().left) + "px"
+            transformX = -(targetPosX - lastPosX) + "px"
+            if(targetPosX > screenWidth/2) {
+                transformX = -((targetPosX - lastPosX) - tabWidth + cardWidth) + "px"
+            }
+            if(lastPosX > screenWidth/2) {
+                transformX = -((targetPosX - lastPosX) + tabWidth - cardWidth) + "px"
+            }
+            if((targetPosX > screenWidth/2) && (lastPosX > screenWidth/2)) {
+                transformX = -((targetPosX - lastPosX)) + "px"
+            }
+            
             //transformX = -300 * (event.target.id - lastEntry.id)/(Math.abs(event.target.id - lastEntry.id)) + "px"
         }
          // animation
@@ -27,11 +43,11 @@ document.addEventListener("click", event => {
             duration: 500,
             })
 
-        if(xRange <= screenWidth/2) {
+        if(targetPosX <= screenWidth/2) {
 
         contentContainer.append(beerInfo)
-        beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX + "px"
-        beerInfo.style.top = event.target.getBoundingClientRect().top + window.scrollY + "px"
+        beerInfo.style.left = targetPosX + "px"
+        beerInfo.style.top = targetPosY + "px"
 
         const beerTabTitle = document.createElement("h1")
         beerTabTitle.className = "beerTabTitle"
@@ -79,11 +95,11 @@ document.addEventListener("click", event => {
 
         }
 
-        if(xRange > screenWidth/2) {
+        if(targetPosX > screenWidth/2) {
 
             contentContainer.append(beerInfo)
-            beerInfo.style.left = event.target.getBoundingClientRect().left + window.scrollX - beerInfo.clientWidth + event.target.offsetWidth + "px"
-            beerInfo.style.top = event.target.getBoundingClientRect().top + window.scrollY + "px"
+            beerInfo.style.left = targetPosX - beerInfo.clientWidth + event.target.offsetWidth + "px"
+            beerInfo.style.top = targetPosY + "px"
 
             const beerTabTitle = document.createElement("h1")
             beerTabTitle.className = "beerTabTitle"
@@ -135,6 +151,10 @@ document.addEventListener("click", event => {
             }
         
             lastEntry = event.target
+            lastPosX = lastEntry.getBoundingClientRect().left
+            lastPosY = lastEntry.getBoundingClientRect().top
+
+            console.log(lastPosX)
 
     } else {
 
