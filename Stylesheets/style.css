@@ -67,8 +67,75 @@
 }
 
 #beer{
-    position: fixed;
+    position: sticky;
     left : 300px
+}
+
+#beer-input{
+    height :55px; 
+    width: 80%;
+    outline:none;
+    border: none;
+    border-radius:5px;
+    padding:0 60px 0 20px;
+    font-size: 18px;
+    background-color: rgb(193, 188, 188);
+}
+
+#beer-submit{
+    height: 40px;
+    width: 200px;
+    line-height: 55px;
+    position: absolute;
+    top: 25px;
+    right: -200px;
+    text-align : center;
+    font-size :25px;
+    cursor: pointer;
+}
+
+#beer .autocom-box{
+    padding : 0px;
+    max-height: 280px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    position: sticky;
+}
+
+#beer.active .autocom-box{
+    padding : 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+    position: sticky;
+}
+
+#beer.active .autocom-box li {
+    display: block;
+}
+
+.autocom-box li{
+    list-style :none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor :default;
+    border-radius :3px;
+    display: none;
+    position: sticky;
+
+}
+
+.autocom-box li:hover{
+    background: #efefef;
+}
+
+#newContainer {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    /* margin-top: 1%; */
+    top :200px;
+    position: relative;
 }
 
 

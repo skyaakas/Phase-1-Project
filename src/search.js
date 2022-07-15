@@ -4,6 +4,8 @@ const beerSearchForm = document.querySelector("#beer")
 const beerInput = document.getElementById("beer-input")
 const searchContainer = document.getElementById("searchContainer")
 const test = document.getElementById("test")
+const newContainer = document.getElementById("newContainer")
+// const suggBox = document.querySelector(".autocom-box")
 
 // let data =[]
 
@@ -89,7 +91,7 @@ function searchData (data) {
 
         const imgContainer = document.createElement("div")
         imgContainer.className = "entry"
-        contentContainer.append(imgContainer)
+        newContainer.append(imgContainer)
         imgContainer.id = element.id
 
         const image = document.createElement("img")
@@ -100,7 +102,7 @@ function searchData (data) {
         const title = document.createElement("h2")
         title.className = "title"
         title.textContent = array[index].name
-        contentContainer.append(title)
+        imgContainer.append(title)
     })
 
         // const imgContainer = document.createElement("div")
@@ -137,8 +139,7 @@ function searchData (data) {
 //         // contentContainer.append(imgContainer)
 
 // }
-function findsBeer() {
-    beer.addEventListener("submit", (e) => {
+function findsBeer(e) {
         e.preventDefault()
         let search = e.target.search.value.toUpperCase();
         fetch("https://api.punkapi.com/v2/beers")
@@ -153,7 +154,7 @@ function findsBeer() {
         // alert(beerInput.value)
         // fetchSearches(searchInput);
         // searchForm.reset()
-    })
+}
 //     beer.addEventListener('keyup', (e)=>{
 //         console.log(e.target.value )
 //         const searchString = e.target.value;
@@ -164,7 +165,7 @@ function findsBeer() {
 //         console.log(filteredData);
 
 // })
-}
+
 
 // function fetchSearches(searchInput) {
 //     fetch("https://api.punkapi.com/v2/beers")
@@ -187,7 +188,10 @@ function handleRenderSearch(){
     <form id="beer">
         <label>Find Your Beer <label>
         <input id="beer-input" type="text" name="search"></input>
-        <input type="submit"></input>
+        <input id= "beer-submit" type="submit"></input>
+        <div class = "autocom-box">
+            <li></li>
+        </div>
     </form>
     <div id="searchContainer"></div>
     `
@@ -195,17 +199,36 @@ function handleRenderSearch(){
     // renderData(beerData);
     // const beerSearchForm = document.querySelector("#beer")
     // const beerInput = document.getElementById("beer-input")
-    // beer.addEventListener('keyup', (e)=>{
-    //     //console.log(e.target.value )
-    //     const searchString = e.target.value.toLowerCase();
-    //     fetch("https://api.punkapi.com/v2/beers")
-    //     .then(res => res.json())
-    //     .then(allData => {
-    //         let filteredData = allData.filter(characters=> characters.name.toLowerCase().includes(searchString))
-    //         // console.log(filteredData);
-    //         // filterData(filteredData)
+    beer.addEventListener('keyup', (e)=>{
+        const box = document.querySelector("#autocom-box")
+        // console.log(e.target.value )
+        const searchString = e.target.value.toLocaleLowerCase();
+        // let filterData = [];
+        fetch("https://api.punkapi.com/v2/beers")
+        .then(res => res.json())
+        .then(allData => {
+             let filterData = allData.filter(characters=> characters.name.toLocaleLowerCase().includes(searchString))
+             filterData = filterData.map((characters)=>{
+                return characters.name = '<li>'+characters.name+'</li>';
+                
+            })
+             console.log(filterData);
+             
+             showSuggestion(filterData);
+             let allList =  document.querySelector(".autocom-box").querySelectorAll("li"); 
+        console.log(allList);
+        for (let i = 0; i < allList.length; i++) {
+            allList[i].setAttribute("onclick", "select(this)")
             
-    // })
+        }   
+             
+        })
+        beer.classList.add("active");
+            // filterData(filteredData)
+        
+            
+        
+     })
     // contentContainer.style.display="none";
         
         // })
@@ -230,3 +253,19 @@ document.querySelector('#search').addEventListener('click', handleRenderSearch)
 //     })
 //     console.log(filteredData);
 // })
+
+function showSuggestion(list){
+    let listData;
+    if(!list.length){
+        userValue = document.querySelector("#beer-input").value;
+        listData ='<li>' +userValue + '</li>';
+    }else{
+        listData = list.join('  ');
+    }
+    document.querySelector(".autocom-box").innerHTML = listData;
+}
+
+function select(element){
+    let selectUserData = element.textContent;
+    document.querySelector("#beer-input").value = selectUserData;
+}
