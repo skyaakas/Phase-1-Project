@@ -139,8 +139,7 @@ function searchData (data) {
 //         // contentContainer.append(imgContainer)
 
 // }
-function findsBeer() {
-    beer.addEventListener("submit", (e) => {
+function findsBeer(e) {
         e.preventDefault()
         let search = e.target.search.value.toUpperCase();
         fetch("https://api.punkapi.com/v2/beers")
@@ -155,7 +154,7 @@ function findsBeer() {
         // alert(beerInput.value)
         // fetchSearches(searchInput);
         // searchForm.reset()
-    })
+}
 //     beer.addEventListener('keyup', (e)=>{
 //         console.log(e.target.value )
 //         const searchString = e.target.value;
@@ -166,7 +165,7 @@ function findsBeer() {
 //         console.log(filteredData);
 
 // })
-}
+
 
 // function fetchSearches(searchInput) {
 //     fetch("https://api.punkapi.com/v2/beers")
