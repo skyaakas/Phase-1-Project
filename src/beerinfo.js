@@ -12,30 +12,18 @@ document.addEventListener("click", event => {
             beerInfo.removeChild(beerInfo.firstChild)
         }
 
-        console.log(beerData[event.target.id - 1])
-
         const targetPosX = event.target.getBoundingClientRect().left + window.scrollX
         const targetPosY = event.target.getBoundingClientRect().top + window.scrollY
-        const tabWidth = beerInfo.offsetWidth
         const cardWidth = event.target.offsetWidth
         const screenWidth = document.body.clientWidth
+        let tabWidth = beerInfo.offsetWidth
 
         const apiEntry = beerData[event.target.id - 1]
-        const maltArray = apiEntry.ingredients.malt
-
-        let maltUnits = []
-        let maltAmounts = []
-    
-        maltArray.forEach((element, index, array) => {
-            maltAmounts.push(array[index].amount.value)
-        })
-
-        console.log(maltAmounts)
 
         let transformX = "-300px"
         
         if(lastEntry) {
-            transformX = -(targetPosX - lastPosX) + "px"
+            //transformX = -(targetPosX - lastPosX) + "px"
             if(targetPosX > screenWidth/2) {
                 transformX = -((targetPosX - lastPosX) - tabWidth + cardWidth) + "px"
             }
@@ -60,6 +48,7 @@ document.addEventListener("click", event => {
 
             // main div
             contentContainer.append(beerInfo)
+
             beerInfo.style.left = targetPosX + "px"
             beerInfo.style.top = targetPosY + "px"
 
@@ -130,6 +119,10 @@ document.addEventListener("click", event => {
 
             // main div
             contentContainer.append(beerInfo)
+
+            // initialize variable 
+            tabWidth = beerInfo.offsetWidth
+
             beerInfo.style.left = targetPosX - tabWidth + cardWidth + "px"
             beerInfo.style.top = targetPosY + "px"
 
