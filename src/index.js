@@ -1,16 +1,17 @@
+
 const contentContainer = document.getElementById("contentContainer")
 const popUpMenu = document.createElement("div")
 
 let beerData
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://api.punkapi.com/v2/beers")
+    fetch(`https://api.punkapi.com/v2/beers?${apiKey}`)
     .then(resp => resp.json())
     .then(data => renderData(data))
 })
 
 function renderData (data) {
-    // console.log(data)
+
     beerData = data
 
     data.forEach((element, index, array) => {
