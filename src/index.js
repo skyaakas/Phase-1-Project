@@ -6,7 +6,7 @@ const popUpMenu = document.createElement("div")
 let beerData
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(`https://api.punkapi.com/v2/beers?${apiKey}`)
+    fetch("https://api.punkapi.com/v2/beers")
     .then(resp => resp.json())
     .then(data => renderData(data))
 })

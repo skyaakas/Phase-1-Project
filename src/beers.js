@@ -1,5 +1,5 @@
 document.addEventListener("click", event => {
-    fetch(`https://api.punkapi.com/v2/beers?${apiKey}`)
+    fetch("https://api.punkapi.com/v2/beers")
     .then(resp => resp.json())
     .then(data => populateData(data))
 })
@@ -152,7 +152,7 @@ function populateData(data) {
     //     body: JSON.stringify(data[22])
     // })
 
-    fetch(`https://api.punkapi.com/v2/beers?${apiKey}`, {
+    fetch("https://api.punkapi.com/v2/beers", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
