@@ -32,9 +32,8 @@ document.addEventListener("click", event => {
             if((targetPosX > screenWidth/2) && (lastPosX > screenWidth/2)) {
                 transformX = -((targetPosX - lastPosX)) + "px"
             }
-            
-            //transformX = -300 * (event.target.id - lastEntry.id)/(Math.abs(event.target.id - lastEntry.id)) + "px"
         }
+
          // animation
          beerInfo.animate([
             {transform: `translateX(${transformX})`},
@@ -43,109 +42,141 @@ document.addEventListener("click", event => {
             duration: 500,
             })
 
+
         if(targetPosX <= screenWidth/2) {
 
-        contentContainer.append(beerInfo)
-        beerInfo.style.left = targetPosX + "px"
-        beerInfo.style.top = targetPosY + "px"
+            // main div
+            contentContainer.append(beerInfo)
+            beerInfo.style.left = targetPosX + "px"
+            beerInfo.style.top = targetPosY + "px"
 
-        const beerTabTitle = document.createElement("h1")
-        beerTabTitle.className = "beerTabTitle"
-        beerTabTitle.textContent = beerData[event.target.id - 1].name
-        beerInfo.append(beerTabTitle)
+            // header div
+            const beerHeader = document.createElement("div")
+            beerHeader.className = "beerHeader"
+            beerInfo.append(beerHeader)
 
-        const beerPic = document.createElement("img")
-        beerPic.src = beerData[event.target.id - 1].image_url
-        beerPic.className = "beerPic"
-        beerInfo.append(beerPic)
+            // image
+            const beerPic = document.createElement("img")
+            beerPic.src = beerData[event.target.id - 1].image_url
+            beerPic.className = "beerPic"
+            beerHeader.append(beerPic)
 
-        const beerInfoList = document.createElement("ul")
-        beerTabTitle.append(beerInfoList)
+            // minor info div
+            const minorInfo = document.createElement("div")
+            minorInfo.className = "minorInfo"
+            beerHeader.append(minorInfo)
 
-        const brewDate = document.createElement("p")
-        brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
-        brewDate.className = "brewDate"
-        beerInfoList.append(brewDate)
+            // title
+            const beerTabTitle = document.createElement("h1")
+            beerTabTitle.className = "beerTabTitle"
+            beerTabTitle.textContent = beerData[event.target.id - 1].name
+            minorInfo.append(beerTabTitle)
 
-        const beerTagline = document.createElement("p")
-        beerTagline.textContent = beerData[event.target.id - 1].tagline
-        beerTagline.className = "beerTagline"
-        beerInfoList.append(beerTagline)
+            // info points
+            const brewDate = document.createElement("p")
+            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
+            brewDate.className = "infoPoint"
+            minorInfo.append(brewDate)
 
-        const beerABV = document.createElement("p")
-        beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
-        beerABV.className = "beerABV"
-        beerInfoList.append(beerABV)
+            const beerTagline = document.createElement("p")
+            beerTagline.textContent = beerData[event.target.id - 1].tagline
+            beerTagline.className = "infoPoint"
+            minorInfo.append(beerTagline)
 
-        const beerDescription = document.createElement("p")
-        beerDescription.textContent = beerData[event.target.id - 1].description
-        beerDescription.className = "beerDescription"
-        beerInfo.append(beerDescription)
+            const beerABV = document.createElement("p")
+            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
+            beerABV.className = "infoPoint"
+            minorInfo.append(beerABV)
 
-        const beerFoodPair = document.createElement("p")
-        beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
-        beerFoodPair.className = "beerFoodPair"
-        beerInfo.append(beerFoodPair)
 
-        const recipeHeader = document.createElement("h2")
-        recipeHeader.textContent = "Recipe:"
-        recipeHeader.className = "recipeHeader"
-        beerInfo.append(recipeHeader)
+            // major info
+            const beerDescription = document.createElement("p")
+            beerDescription.textContent = beerData[event.target.id - 1].description
+            beerDescription.className = "beerDescription"
+            beerInfo.append(beerDescription)
+
+            const beerFoodPair = document.createElement("p")
+            beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
+            beerFoodPair.className = "beerFoodPair"
+            beerInfo.append(beerFoodPair)
+
+            // recipe
+            const recipeHeader = document.createElement("h2")
+            recipeHeader.textContent = "Recipe:"
+            recipeHeader.className = "recipeHeader"
+            beerInfo.append(recipeHeader)
 
         }
 
         if(targetPosX > screenWidth/2) {
 
+            // main div
             contentContainer.append(beerInfo)
             beerInfo.style.left = targetPosX - beerInfo.clientWidth + event.target.offsetWidth + "px"
             beerInfo.style.top = targetPosY + "px"
 
+            // header div
+            const beerHeader = document.createElement("div")
+            beerHeader.className = "beerHeader"
+            beerInfo.append(beerHeader)
+
+            // minor info div
+            const minorInfo = document.createElement("div")
+            minorInfo.className = "minorInfo"
+            beerHeader.append(minorInfo)
+
+            // title
             const beerTabTitle = document.createElement("h1")
             beerTabTitle.className = "beerTabTitle"
             beerTabTitle.textContent = beerData[event.target.id - 1].name
-            beerInfo.append(beerTabTitle)
-            beerTabTitle.style.float = "left"
-            beerTabTitle.style.marginLeft = "13%"
-    
+            minorInfo.append(beerTabTitle)
+
+            // info points
+            const brewDate = document.createElement("p")
+            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
+            brewDate.className = "infoPoint"
+            minorInfo.append(brewDate)
+
+            const beerTagline = document.createElement("p")
+            beerTagline.textContent = beerData[event.target.id - 1].tagline
+            beerTagline.className = "infoPoint"
+            minorInfo.append(beerTagline)
+
+            const beerABV = document.createElement("p")
+            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
+            beerABV.className = "infoPoint"
+            minorInfo.append(beerABV)
+
+            // image
             const beerPic = document.createElement("img")
             beerPic.src = beerData[event.target.id - 1].image_url
             beerPic.className = "beerPic"
-            beerInfo.append(beerPic)
-            beerPic.style.float = "right"
-            beerPic.style.marginRight = "10%"
-            beerPic.style.marginLeft = "0%"
-    
-            // const beerInfoList = document.createElement("ul")
-            // beerInfoList.className = "beerInfoList"
-            // beerTabTitle.append(beerInfoList)
-    
-            const brewDate = document.createElement("p")
-            brewDate.textContent = "First brewed " + beerData[event.target.id - 1].first_brewed
-            brewDate.className = "brewDate"
-            beerTabTitle.append(brewDate)
-    
-            const beerTagline = document.createElement("p")
-            beerTagline.textContent = beerData[event.target.id - 1].tagline
-            beerTagline.className = "beerTagline"
-            beerTabTitle.append(beerTagline)
-    
-            const beerABV = document.createElement("p")
-            beerABV.textContent = "ABV: " + beerData[event.target.id - 1].abv + "%"
-            beerABV.className = "beerABV"
-            beerTabTitle.append(beerABV)
-    
+            beerHeader.append(beerPic)
+
+            // major info
             const beerDescription = document.createElement("p")
             beerDescription.textContent = beerData[event.target.id - 1].description
             beerDescription.className = "beerDescription"
             beerInfo.append(beerDescription)
-            beerDescription.style.marginLeft = "5%"
-    
+
             const beerFoodPair = document.createElement("p")
             beerFoodPair.textContent = "Pairs well with " + beerData[event.target.id - 1].food_pairing
             beerFoodPair.className = "beerFoodPair"
             beerInfo.append(beerFoodPair)
-            beerFoodPair.style.marginLeft = "5%"
-    
+
+            // recipe
+            const recipeHeader = document.createElement("h2")
+            recipeHeader.textContent = "Recipe:"
+            recipeHeader.className = "recipeHeader"
+            beerInfo.append(recipeHeader)
+
+            // styling
+            beerPic.style.marginLeft = "auto"
+            beerPic.style.float = "right"
+            beerPic.style.marginRight = "17%"
+
+            minorInfo.style.marginLeft = "10%"
+            
             }
         
             lastEntry = event.target
