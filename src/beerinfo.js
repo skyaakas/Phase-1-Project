@@ -24,11 +24,14 @@ document.addEventListener("click", event => {
         
         if(lastEntry) {
             //transformX = -(targetPosX - lastPosX) + "px"
-            if(targetPosX > screenWidth/2) {
-                transformX = -((targetPosX - lastPosX) - tabWidth + cardWidth) + "px"
+            if((targetPosX < screenWidth/2) && (lastPosX < screenWidth/2)) {
+                transformX = -((targetPosX - lastPosX) ) + "px"
             }
-            if(lastPosX > screenWidth/2) {
+            if((targetPosX < screenWidth/2) && (lastPosX > screenWidth/2)) {
                 transformX = -((targetPosX - lastPosX) + tabWidth - cardWidth) + "px"
+            }
+            if((targetPosX > screenWidth/2) && (lastPosX < screenWidth/2)) {
+                transformX = -((targetPosX - lastPosX)) + tabWidth - cardWidth + "px"
             }
             if((targetPosX > screenWidth/2) && (lastPosX > screenWidth/2)) {
                 transformX = -((targetPosX - lastPosX)) + "px"
