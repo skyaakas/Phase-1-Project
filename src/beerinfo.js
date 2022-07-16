@@ -36,6 +36,9 @@ document.addEventListener("click", event => {
             if((targetPosX > screenWidth/2) && (lastPosX > screenWidth/2)) {
                 transformX = -((targetPosX - lastPosX)) + "px"
             }
+            if(lastEntry === event.target) {
+                transformX = "-300px"
+            }
         }
 
          // animation
